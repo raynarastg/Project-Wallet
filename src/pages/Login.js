@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import loginEmail from '../redux/actions';
+import { loginEmail } from '../redux/actions';
 
 class Login extends React.Component {
   constructor() {
@@ -24,7 +24,6 @@ class Login extends React.Component {
     const { email, password } = this.state;
     const seis = 6;
     const emailValidation = /^[a-z0-9.]+@[a-z0-9]+.[a-z]+(.[a-z]+)?$/i;
-    // this.setState({ disabled: !(password.length >= seis && emailValidation.test(email)) });
     if (emailValidation.test(email) && password.length >= seis) {
       this.setState({ disabled: false });
     } else {
