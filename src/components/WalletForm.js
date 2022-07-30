@@ -4,6 +4,14 @@ import { connect } from 'react-redux';
 import { fetchCurrencies } from '../redux/actions';
 
 class WalletForm extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     expenses: [],
+
+  //   };
+  // }
+
   componentDidMount = () => {
     const { currencies } = this.props;
     currencies();
@@ -41,6 +49,7 @@ class WalletForm extends Component {
           <option>Transporte</option>
           <option>Saúde</option>
         </select>
+        <button type="submit">Adicionar despesa</button>
       </div>
     );
   }
