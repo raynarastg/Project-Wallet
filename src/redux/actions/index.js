@@ -21,3 +21,18 @@ export function fetchCurrencies() {
     dispatch(getCurrencies(currencies));
   };
 }
+
+export const EXPENSES_CONSUMPTION = 'EXPENSES_CONSUMPTION';
+
+const expenseConsumption = (expenses) => ({
+  type: EXPENSES_CONSUMPTION,
+  expenses,
+});
+
+export function fetchExpenses(payload) {
+  return async (dispatch) => {
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const data = await response.json();
+    dispatch(expenseConsumption({ ...payload, exchangeRates: data }));
+  };
+}
