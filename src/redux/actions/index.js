@@ -36,3 +36,10 @@ export function fetchExpenses(payload) {
     dispatch(expenseConsumption({ ...payload, exchangeRates: data }));
   };
 }
+
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+
+export const removeExpense = (expense) => ({
+  type: REMOVE_EXPENSE,
+  remove: expense,
+});

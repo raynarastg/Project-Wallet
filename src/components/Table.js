@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { removeExpense } from '../redux/actions';
 import '../style/table.css';
 
 class Table extends Component {
   render() {
-    const { expenses } = this.props;
+    const { expenses, dispatchExpenses } = this.props;
     return (
       <div>
         <theade>
@@ -35,6 +36,19 @@ class Table extends Component {
                 {(Number(el.value)
                 * Number(el.exchangeRates[el.currency].ask)).toFixed(2)}
               </td>
+              <td>
+                <button
+                  data-testid="delete-btn"
+                  type="submit"
+                  onClick={ () => {
+                    dispatchExpenses(expenses.filter((index) => (
+                      index.id !== el.id)));
+                  } }
+                >
+                  Excluir
+
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -44,7 +58,9 @@ class Table extends Component {
 }
 
 Table.propTypes = {
+  dispatchExpenses: PropTypes.func.isRequired,
   expenses: PropTypes.shape({
+    filter: PropTypes.func,
     map: PropTypes.func,
   }).isRequired,
 };
@@ -53,4 +69,10 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(Table);
+const mapDispatchToProps = (dispatch) => ({
+  dispatchExpenses: (expense) => dispatch(removeExpense(expense)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
+
+// daniel rubens me auxiliou em direção ao filter  no button
