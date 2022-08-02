@@ -1,4 +1,4 @@
-const mockData = {
+export const mockData = {
   USD: {
     code: 'USD',
     codein: 'BRL',
@@ -209,4 +209,41 @@ const mockData = {
   },
 };
 
-export default mockData;
+export const mockExpenses = 
+[{
+  id: 0,
+  value: '75',
+  currency: 'CAD',
+  method: 'Dinheiro',
+  tag: 'Alimentação',
+  description: 'descrição1',
+  exchangeRates: { ...mockData }
+},
+{
+  id: 1,
+  value: '40',
+  currency: 'EUR',
+  method: 'Cartão de Crédito',
+  tag: 'Lazer',
+  description: 'descrição2',
+  exchangeRates: { ...mockData }
+    },]
+
+export const mockCurrencies = [
+  'USD',
+  'CAD',
+  'GBP',
+  'ARS',
+  'BTC',
+  'LTC',
+  'EUR',
+  'JPY',
+  'CHF',
+  'AUD',
+  'CNY',
+  'ILS',
+  'ETH',
+  'XRP',
+  'DOGE'
+]
+
