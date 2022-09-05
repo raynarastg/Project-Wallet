@@ -20,11 +20,13 @@ describe('testa table', () => {
     expect(screen.getByRole('cell', { name: 'Dinheiro' })).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: '75.00' })).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: 'CAD' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: /dólar canadense\/real brasileiro/i }))
     expect(screen.getByRole('cell', { name: 'descrição2' })).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: 'Lazer' })).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: '40.00' })).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: 'Cartão de Crédito' })).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: 'EUR' })).toBeInTheDocument();
+    expect(screen.getByRole('cell', { name: /euro\/real brasileiro/i })).toBeInTheDocument()
   })
 
   it('', () => {
@@ -50,5 +52,6 @@ describe('testa table', () => {
     expect(input.value).toBeDefined();
     userEvent.click(buttonExcluir)
     expect("").toBeDefined();
+
   })
 })

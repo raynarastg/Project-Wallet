@@ -1,0 +1,79 @@
+.text-header {
+  align-items: center;
+  background-color: hwb(0 100% 0%);
+  border: 1px solid rgb(221, 225, 221);
+  display: flex;
+  font-family: Rubik, sans-serif;
+  height: 106px;
+  justify-content: center;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1580px;
+  width: 100%;
+}
+
+.text_emoji {
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  font-weight: 700;
+  gap: 10px;
+}
+
+.box-infos {
+  align-items: center;
+  border: 1px solid rgb(221, 225, 221);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row-reverse;
+  height: 66px;
+  justify-content: space-evenly;
+  width: 349px;
+}
+
+.linha-vertical {
+  border-left: 2px solid rgb(221, 225, 221);
+  box-sizing: border-box;
+  height: 30px;
+}
+
+.user-infos {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.img-user {
+  height: 30px;
+  width: 30px;
+}
+
+.price-moeda {
+  color: rgb(255, 112, 112);
+  font-family: Rubik, sans-serif;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+.text-despesas {
+  color: rgb(148, 148, 148);
+  font-family: Rubik, sans-serif;
+}
+
+.email-user {
+  color: rgb(33, 150, 243);
+  font-family: Rubik, sans-serif;
+  font-size: medium;
+  font-weight: 700;
+}
+

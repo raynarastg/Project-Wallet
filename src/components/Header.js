@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../style/header.css';
+import userIcon from '../style/user.png';
+import carteira from '../style/wallet.png';
 
 class Header extends Component {
   constructor() {
@@ -28,16 +31,49 @@ class Header extends Component {
   render() {
     const { user } = this.props;
     const { price } = this.state;
+
     this.sumValorTotal();
     return (
-      <div>
-        <p data-testid="email-field">
+      <div className="text-header">
+        <div className="header-wrapper">
 
-          {user.email}
+          <div className="text_emoji">
+            <div>
+              <span className="text-trybe">Trybe</span>
+              <span className="text-wallet">Wallet</span>
+            </div>
+            <img src={ carteira } alt="carteira" />
+          </div>
+          <div className="box-infos">
+            <div className="user-infos">
+              <p data-testid="email-field" className="email-user">
+                {user.email}
+              </p>
+              <img
+                src={ userIcon }
+                alt="userIcon"
+                className="img-user"
+              />
+            </div>
+            <div className="linha-vertical"> </div>
+            <div>
+              <p className="text-despesas">Suas despesas</p>
+              <span
+                data-testid="total-field"
+                className="price-moeda"
+              >
+                {price}
+              </span>
+              <span
+                data-testid="header-currency-field"
+                className="price-moeda"
+              >
+                BRL
 
-        </p>
-        <p data-testid="total-field">{price}</p>
-        <p data-testid="header-currency-field">BRL</p>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

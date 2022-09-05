@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-max-depth */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrencies, fetchExpenses } from '../redux/actions';
+import '../style/walletForm.css';
 
 class WalletForm extends Component {
   constructor() {
@@ -43,49 +45,90 @@ class WalletForm extends Component {
     const { wallet } = this.props;
     const { currencies } = wallet;
     return (
-      <div>
-        <input
-          type="textarea"
-          data-testid="value-input"
-          name="value"
-          value={ value }
-          onChange={ this.handleChange }
-        />
-        <input
-          type="textarea"
-          data-testid="description-input"
-          name="description"
-          value={ description }
-          onChange={ this.handleChange }
-        />
-        <select
-          data-testid="currency-input"
-          name="currency"
-          onChange={ this.handleChange }
-        >
-          {currencies.map((currencie) => (
-            <option key={ currencie }>{ currencie }</option>
-          ))}
-        </select>
-        <select data-testid="method-input" name="method" onChange={ this.handleChange }>
-          <option>Dinheiro</option>
-          <option>Cartão de crédito</option>
-          <option>Cartão de débito</option>
-        </select>
-        <select data-testid="tag-input" name="tag" onChange={ this.handleChange }>
-          <option>Alimentação</option>
-          <option>Lazer</option>
-          <option>Trabalho</option>
-          <option>Transporte</option>
-          <option>Saúde</option>
-        </select>
-        <button
-          type="submit"
-          onClick={ this.handleClick }
-        >
-          Adicionar despesa
+      <div className="inputs-form">
+        <div className="infos-expenses">
+          <span>
+            <p className="new-expense">Nova despesa</p>
+          </span>
+          <div className="inputs-selects">
+            <label htmlFor="description" className="text">
+              descrição
+              <input
+                type="textarea"
+                data-testid="description-input"
+                name="description"
+                id="description"
+                value={ description }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <label htmlFor="tag" className="text">
+              categoria
+              <select
+                data-testid="tag-input"
+                name="tag"
+                onChange={ this.handleChange }
+                className="text selects"
+              >
+                <option>Alimentação</option>
+                <option>Lazer</option>
+                <option>Trabalho</option>
+                <option>Transporte</option>
+                <option>Saúde</option>
+              </select>
+            </label>
+            <div className="payment">
+              <label htmlFor="value" className="text">
+                valor
+                <input
+                  type="textarea"
+                  data-testid="value-input"
+                  name="value"
+                  id="value"
+                  className="value-input"
+                  value={ value }
+                  onChange={ this.handleChange }
+                />
+              </label>
+              <label htmlFor="currency" className="text">
+                moeda
+                <select
+                  data-testid="currency-input"
+                  name="currency"
+                  onChange={ this.handleChange }
+                  className="text moeda"
+                >
+                  {currencies.map((currencie) => (
+                    <option key={ currencie }>{ currencie }</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <label htmlFor="select" className="text">
+              {' '}
+              forma de pagamento
+              <select
+                data-testid="method-input"
+                name="method"
+                onChange={ this.handleChange }
+                className="text selects"
+              >
+                forma de pagamento
+                <option>Dinheiro</option>
+                <option>Cartão de crédito</option>
+                <option>Cartão de débito</option>
+              </select>
+            </label>
+          </div>
 
-        </button>
+          <button
+            type="submit"
+            onClick={ this.handleClick }
+          >
+            Adicionar
+
+          </button>
+        </div>
       </div>
     );
   }

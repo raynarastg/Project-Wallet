@@ -3,6 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginEmail } from '../redux/actions';
+import '../style/login.css';
+import carteira from '../style/wallet.png';
 
 class Login extends React.Component {
   constructor() {
@@ -37,37 +39,54 @@ class Login extends React.Component {
     const { disabled, email, redirect } = this.state;
     const { enviaInfos } = this.props;
     return (
-      <div>
-        { redirect && (<Redirect to="/carteira" />) }
-        <label htmlFor="email">
-          Email:
-          <input
-            data-testid="email-input"
-            name="email"
-            type="email"
-            id="email"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="senha">
-          Senha:
-          <input
-            data-testid="password-input"
-            type="password"
-            name="password"
-            id="senha"
-            onChange={ this.handleChange }
-          />
-        </label>
+      <section className="page-inicial">
+        <div className="page-login">
+          <div className="text-emoji">
+            <div>
+              <span className="text-trybe">Trybe</span>
+              <span className="text-wallet">Wallet</span>
+            </div>
+            <img src={ carteira } alt="carteira" />
+          </div>
+          {redirect && (<Redirect to="/carteira" />)}
+          <form className="inputs-button">
+
+            <label htmlFor="email">
+
+              email
+
+              <input
+                data-testid="email-input"
+                name="email"
+                type="email"
+                id="email"
+                onChange={ this.handleChange }
+              />
+            </label>
+            <label htmlFor="senha">
+              senha
+              <input
+                data-testid="password-input"
+                type="password"
+                name="password"
+                id="senha"
+                onChange={ this.handleChange }
+              />
+            </label>
+
+          </form>
+        </div>
         <button
           type="button"
           disabled={ disabled }
           onClick={ () => { enviaInfos(email); this.setState({ redirect: true }); } }
         >
+
           Entrar
 
         </button>
-      </div>
+
+      </section>
     );
   }
 }

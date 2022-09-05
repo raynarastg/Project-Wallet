@@ -1,0 +1,57 @@
+.inputs-form {
+  background-color: hwb(0 100% 0%);
+  border: 1px solid rgb(222, 224, 222);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 562px;
+  padding: 60px 40px;
+  width: 400px;
+}
+
+.new-expense {
+  color: rgb(129, 199, 132);
+  font-family: Rubik, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.infos-expenses {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.text {
+  color: rgb(148, 148, 148);
+}
+
+.payment {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.value-input {
+  width: 230px;
+}
+
+.selects {
+  border: 1px solid rgb(221, 225, 221);
+  border-radius: 4px;
+  height: 36px;
+}
+
+.moeda {
+  border: 1px solid rgb(221, 225, 221);
+  border-radius: 4px;
+  height: 36px;
+  width: 80px;
+}
+
+.inputs-selects {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

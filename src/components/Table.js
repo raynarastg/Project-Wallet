@@ -8,35 +8,35 @@ class Table extends Component {
   render() {
     const { expenses, dispatchExpenses } = this.props;
     return (
-      <div>
-        <theade>
+      <div className="tabela">
+        <thead>
           <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
+            <th style={ { width: '150px' } }>Descrição</th>
+            <th style={ { width: '150px' } }>Categoria</th>
+            <th style={ { width: '100px' } }>Método de pagamento</th>
+            <th style={ { width: '100px' } }>Valor</th>
+            <th style={ { width: '50px' } }>Moeda</th>
             <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
+            <th style={ { width: '80px' } }>Câmbio utilizado</th>
+            <th style={ { width: '100px' } }>Valor convertido</th>
+            <th style={ { width: '100px' } }> </th>
           </tr>
-        </theade>
+        </thead>
         <tbody>
           {expenses.map((el) => (
             <tr key={ el.id }>
-              <td>{el.description}</td>
-              <td>{el.currency}</td>
-              <td>{el.method}</td>
+              <td style={ { maxWidth: '150px' } }>{el.description}</td>
               <td>{el.tag}</td>
-              <td>{Number(el.value).toFixed(2)}</td>
+              <td>{el.method}</td>
+              <td style={ { maxWidth: '100px' } }>{Number(el.value).toFixed(2)}</td>
+              <td>{el.currency}</td>
               <td>{el.exchangeRates[el.currency].name}</td>
               <td>{Number(el.exchangeRates[el.currency].ask).toFixed(2)}</td>
-              <td>
+              <td style={ { maxWidth: '100px' } }>
                 {(Number(el.value)
                 * Number(el.exchangeRates[el.currency].ask)).toFixed(2)}
               </td>
-              <td>
+              <td className="btns">
                 <button
                   data-testid="delete-btn"
                   type="submit"
@@ -45,7 +45,18 @@ class Table extends Component {
                       index.id !== el.id)));
                   } }
                 >
-                  Excluir
+                  <span className="material-symbols-outlined">
+                    delete
+                  </span>
+
+                </button>
+                <button
+                  type="button"
+                  data-testid="edit-btn"
+                >
+                  <span className="material-symbols-outlined">
+                    edit_note
+                  </span>
 
                 </button>
               </td>

@@ -70,4 +70,10 @@ describe('testa pagina login', () => {
     const textEditExcluir = screen.getByText('Editar/Excluir')
     expect(textEditExcluir).toBeDefined()
   })
+
+  it('verifica se um h1 com o texto trybewallet é renderizado', () => {
+    renderWithRouterAndRedux(<Wallet />)
+    const h1 = screen.getByRole('heading', { name: /trybeWallet/i })
+    expect(h1).toBeInTheDocument()
+  })
 })
