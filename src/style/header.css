@@ -35,13 +35,15 @@
   flex-direction: row-reverse;
   height: 66px;
   justify-content: space-evenly;
-  width: 349px;
+  min-width: 349px;
+  padding: 5px;
 }
 
 .linha-vertical {
   border-left: 2px solid rgb(221, 225, 221);
   box-sizing: border-box;
   height: 30px;
+  margin: 5px;
 }
 
 .user-infos {
