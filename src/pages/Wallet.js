@@ -14,7 +14,6 @@ class Wallet extends React.Component {
           <Table />
         </div>
       </div>
-
     );
   }
 }

@@ -2,7 +2,7 @@
 import { LOGIN_EMAIL } from '../actions';
 
 const INITIAL_STATE_LOGIN = {
-  email: 'ray@stg.com',
+  email: '',
 };
 
 const user = (state = INITIAL_STATE_LOGIN, action) => {

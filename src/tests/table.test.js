@@ -4,6 +4,7 @@ import React from 'react';
 import Wallet from '../pages/Wallet';
 import { mockCurrencies, mockExpenses } from './helpers/mockData';
 import { renderWithRouterAndRedux } from './helpers/renderWith';
+
 const initialState = {
   wallet: {
     currencies: mockCurrencies,
@@ -12,6 +13,7 @@ const initialState = {
     idToEdit: 0,
   }
 }
+
 describe('testa table', () => {
   it('testa se table é renderizada', () => {
     renderWithRouterAndRedux(<Wallet />, { initialState })
@@ -52,6 +54,5 @@ describe('testa table', () => {
     expect(input.value).toBeDefined();
     userEvent.click(buttonExcluir)
     expect("").toBeDefined();
-
   })
 })

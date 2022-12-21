@@ -48,7 +48,6 @@ class Table extends Component {
                   <span className="material-symbols-outlined">
                     delete
                   </span>
-
                 </button>
                 <button
                   type="button"
@@ -57,7 +56,6 @@ class Table extends Component {
                   <span className="material-symbols-outlined">
                     edit_note
                   </span>
-
                 </button>
               </td>
             </tr>
@@ -85,5 +83,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
-
-// daniel rubens me auxiliou em direção ao filter  no button

@@ -4,6 +4,7 @@ import React from 'react';
 import App from "../App";
 import Wallet from '../pages/Wallet';
 import { renderWithRouterAndRedux } from './helpers/renderWith';
+
 describe('testa pagina login', () => {
   it('testa se a rota é home', () => {
     const { history } = renderWithRouterAndRedux(<App />)
@@ -36,6 +37,7 @@ describe('testa pagina login', () => {
     const currency = screen.getByTestId('header-currency-field')
     expect(currency).toBeDefined()
   })
+  
   it('testa se os inputs para valor, descrição, moeda, método e despesa são renderizados', () => {
     renderWithRouterAndRedux(<Wallet />)
     const inputValue = screen.getByTestId('value-input')
@@ -51,6 +53,7 @@ describe('testa pagina login', () => {
     const buttonAdd = screen.getByText(/adicionar despesa/i)
     expect(buttonAdd).toBeDefined()
   })
+  
   it('confere se os dados da tabela é renderizado', () => {
     renderWithRouterAndRedux(<Wallet />)
     const textDescription = screen.getByText(/descrição/i)

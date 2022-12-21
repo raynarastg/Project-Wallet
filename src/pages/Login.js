@@ -50,11 +50,8 @@ class Login extends React.Component {
           </div>
           {redirect && (<Redirect to="/carteira" />)}
           <form className="inputs-button">
-
             <label htmlFor="email">
-
               email
-
               <input
                 data-testid="email-input"
                 name="email"
@@ -73,7 +70,6 @@ class Login extends React.Component {
                 onChange={ this.handleChange }
               />
             </label>
-
           </form>
         </div>
         <button
@@ -81,11 +77,8 @@ class Login extends React.Component {
           disabled={ disabled }
           onClick={ () => { enviaInfos(email); this.setState({ redirect: true }); } }
         >
-
           Entrar
-
         </button>
-
       </section>
     );
   }

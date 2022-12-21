@@ -36,7 +36,6 @@ class Header extends Component {
     return (
       <div className="text-header">
         <div className="header-wrapper">
-
           <div className="text_emoji">
             <div>
               <span className="text-trybe">Trybe</span>
@@ -69,7 +68,6 @@ class Header extends Component {
                 className="price-moeda"
               >
                 BRL
-
               </span>
             </div>
           </div>
