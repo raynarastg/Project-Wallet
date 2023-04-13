@@ -30,19 +30,17 @@ Neste projeto foi aplicado os seguintes conceitos:
 
 </details>
 
-## Baixe o projeto na sua máquina
-
-1. Clone o repositório
+## Clone o projeto
 
 - Use o comando: `git clone git@github.com:raynarastg/Project-Wallet.git`.
 - Entre na pasta do repositório que você acabou de clonar:
   - `cd Project-Wallet`
 
-2. Instale as dependências
+1. Instale as dependências
 
 - `npm install`
 
-3. Veja a aplicação no browser
+2. Veja a aplicação no browser
 
 - `npm start`
 
