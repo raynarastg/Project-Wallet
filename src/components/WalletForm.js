@@ -32,7 +32,6 @@ class WalletForm extends Component {
     const { expensesConsumption } = this.props;
     const { id, value, description, currency, method, tag } = this.state;
     const obj = { id, value, description, currency, method, tag };
-    // laura lana me auxiliou nessa parte
     this.setState((prev) => (
       { id: prev.id + 1 }));
     this.setState({ value, description, currency, method, tag });

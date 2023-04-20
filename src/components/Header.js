@@ -38,7 +38,7 @@ class Header extends Component {
         <div className="header-wrapper">
           <div className="text_emoji">
             <div>
-              <span className="text-trybe">Trybe</span>
+              <span className="text-trybe">Your</span>
               <span className="text-wallet">Wallet</span>
             </div>
             <img src={ carteira } alt="carteira" />
