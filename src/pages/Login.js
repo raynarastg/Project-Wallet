@@ -43,7 +43,7 @@ class Login extends React.Component {
         <div className="page-login">
           <div className="text-emoji">
             <div>
-              <span className="text-trybe">Trybe</span>
+              <span className="text-trybe">Your</span>
               <span className="text-wallet">Wallet</span>
             </div>
             <img src={ carteira } alt="carteira" />
