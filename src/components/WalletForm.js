@@ -36,6 +36,7 @@ class WalletForm extends Component {
       { id: prev.id + 1 }));
     this.setState({ value, description, currency, method, tag });
     expensesConsumption(obj);
+
     this.setState({ value: '', description: '' });
   }
 
@@ -128,7 +129,16 @@ class WalletForm extends Component {
           </div>
           {editor
             ? (<button type="button" onClick={ this.clickChange }>Editar</button>)
-            : (<button type="submit" onClick={ this.handleClick }>Adicionar </button>)}
+            : (
+              <button
+                type="submit"
+                disabled={ !((value !== '' && description !== '')) }
+                onClick={ this.handleClick }
+              >
+                Adicionar
+                {' '}
+
+              </button>)}
 
         </div>
       </div>

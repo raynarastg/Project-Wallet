@@ -38,6 +38,7 @@ class Table extends Component {
               </td>
               <td className="btns">
                 <button
+                  className="btn"
                   data-testid="delete-btn"
                   type="submit"
                   onClick={ () => {
@@ -50,6 +51,7 @@ class Table extends Component {
                   </span>
                 </button>
                 <button
+                  className="btn"
                   type="button"
                   data-testid="edit-btn"
                   onClick={ () => dispatchEditExpense(el.id) }
