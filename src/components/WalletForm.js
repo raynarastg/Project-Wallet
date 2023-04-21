@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCurrencies, fetchExpenses } from '../redux/actions';
+import { changedExpense, fetchCurrencies, fetchExpenses } from '../redux/actions';
 import '../style/walletForm.css';
 
 class WalletForm extends Component {
@@ -39,10 +39,17 @@ class WalletForm extends Component {
     this.setState({ value: '', description: '' });
   }
 
+  clickChange = () => {
+    const { value, description, currency, method, tag } = this.state;
+    const { updateExpense } = this.props;
+    updateExpense({ value, description, currency, method, tag });
+    this.setState({ value: '', description: '' });
+  }
+
   render() {
     const { value, description } = this.state;
     const { wallet } = this.props;
-    const { currencies } = wallet;
+    const { currencies, editor } = wallet;
     return (
       <div className="inputs-form">
         <div className="infos-expenses">
@@ -119,14 +126,10 @@ class WalletForm extends Component {
               </select>
             </label>
           </div>
+          {editor
+            ? (<button type="button" onClick={ this.clickChange }>Editar</button>)
+            : (<button type="submit" onClick={ this.handleClick }>Adicionar </button>)}
 
-          <button
-            type="submit"
-            onClick={ this.handleClick }
-          >
-            Adicionar
-
-          </button>
         </div>
       </div>
     );
@@ -136,8 +139,10 @@ class WalletForm extends Component {
 WalletForm.propTypes = {
   currencies: PropTypes.func.isRequired,
   expensesConsumption: PropTypes.func.isRequired,
+  updateExpense: PropTypes.func.isRequired,
   wallet: PropTypes.shape({
     currencies: PropTypes.arrayOf(),
+    editor: PropTypes.bool,
   }).isRequired,
 };
 
@@ -147,6 +152,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   currencies: () => dispatch(fetchCurrencies()),
   expensesConsumption: (payload) => dispatch(fetchExpenses(payload)),
+  updateExpense: (expense) => dispatch(changedExpense(expense)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);

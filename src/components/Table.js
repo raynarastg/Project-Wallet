@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeExpense } from '../redux/actions';
+import { editExpense, removeExpense } from '../redux/actions';
 import '../style/table.css';
 
 class Table extends Component {
   render() {
-    const { expenses, dispatchExpenses } = this.props;
+    const { expenses, dispatchExpenses, dispatchEditExpense } = this.props;
     return (
       <div className="tabela">
         <thead>
@@ -52,6 +52,7 @@ class Table extends Component {
                 <button
                   type="button"
                   data-testid="edit-btn"
+                  onClick={ () => dispatchEditExpense(el.id) }
                 >
                   <span className="material-symbols-outlined">
                     edit_note
@@ -68,6 +69,7 @@ class Table extends Component {
 
 Table.propTypes = {
   dispatchExpenses: PropTypes.func.isRequired,
+  dispatchEditExpense: PropTypes.func.isRequired,
   expenses: PropTypes.shape({
     filter: PropTypes.func,
     map: PropTypes.func,
@@ -80,6 +82,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   dispatchExpenses: (expense) => dispatch(removeExpense(expense)),
+  dispatchEditExpense: (expense) => dispatch(editExpense(expense)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);
